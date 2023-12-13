@@ -1,0 +1,1 @@
+Render cards involve displaying information or content in a visually appealing way using HTML and CSS. They are commonly used to present a concise summary of items like products, articles, or user profiles, making it easier for users to browse and interact with the content.
