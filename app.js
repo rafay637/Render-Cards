@@ -1,4 +1,4 @@
-let Myarr = [
+let StudentArr = [
     {
         id: 4,
         title: "Dummy Data1",
@@ -49,12 +49,12 @@ let Myarr = [
     },
 ];
 
-let obj = document.getElementById("1a");
+let StudentData = document.getElementById("student-record");
 
-let card_Data = Myarr.map((value, index) => {
+StudentArr.map((value, index) => {
     let { id, title, price, description, Image_url, product_oder } = value;
 
-    return `
+    return StudentData.innerHTML += `
     <div class="1a" style="width: 22rem; margin-left: 28rem; border: 1px solid black;">
         <img src="${Image_url}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -63,12 +63,8 @@ let card_Data = Myarr.map((value, index) => {
             <p class="card-prise p-2">${price} ${id}</p>
             <a href="#" class="btn btn-primary m-2">${product_oder}</a>
         </div>
-    </div>
-    `;
+    </div>`
 });
-
-document.write(card_Data);
-obj.innerHTML = value
 
 
 
