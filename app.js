@@ -1,112 +1,139 @@
-let StudentArr = [
+let allMobiles = [
     {
-        id: 4,
-        title: "Dummy Data1",
-        price: "Rs/-$382",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Samsung",
+        model: "SamsungA30",
+        price: "40000",
+        camera: "40px",
+        ram: "8gb",
+        rom: "128gb",
+
     },
     {
-        id: 8,
-        title: "Dummy Data2",
-        price: "Rs/-$496",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Samsung",
+        model: "SamsungA10",
+        price: "40000",
+        camera: "40px",
+        ram: "4gb",
+        rom: "128gb",
+
     },
     {
-        id: 12,
-        title: "Dummy Data3",
-        price: "Rs/-$572",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Samsung",
+        model: "SamsungA20",
+        price: "40000",
+        camera: "40px",
+        ram: "4gb",
+        rom: "128gb",
+
     },
     {
-        id: 16,
-        title: "Dummy Data4",
-        price: "Rs/-$797",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Vivo",
+        model: "VivoY20",
+        price: "20000",
+        camera: "40px",
+        ram: "2gb",
+        rom: "32gb",
+
     },
     {
-        id: 20,
-        title: "Dummy Data5",
-        price: "Rs/-$980",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Vivo",
+        model: "VivoY11",
+        price: "20000",
+        camera: "40px",
+        ram: "3gb",
+        rom: "32gb",
+
     },
     {
-        id: 24,
-        title: "Dummy Data6",
-        price: "Rs/-$806",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-        Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-        product_oder: "Buy Now"
+        brand: "Vivo",
+        model: "VivoY15",
+        price: "30000",
+        camera: "40px",
+        ram: "4gb",
+        rom: "64gb",
+
+    },
+    {
+        brand: "Motorola",
+        model: "Motorola123",
+        price: "5000",
+        camera: "2px",
+        ram: "2gb",
+        rom: "32gb",
+
+    },
+    {
+        brand: "Iphone",
+        model: "Iphone12",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom: "128gb",
+
+    },
+    {
+        brand: "Iphone",
+        model: "Iphone13",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom: "128gb",
+
+    },
+    {
+        brand: "Iphone",
+        model: "IphoneX",
+        price: "300000",
+        camera: "40px",
+        ram: "8gb",
+        rom: "128gb",
+
     },
 ];
 
-let StudentData = document.getElementById("student-record");
+let search_by_key
 
-StudentArr.map((value, index) => {
-    let { id, title, price, description, Image_url, product_oder } = value;
+const select_option_element = document.getElementById('select-options')
+const search_input_element = document.getElementById('search-input')
+const search_btn_element = document.getElementById('basic-addon2')
+const render_cards_element = document.getElementById('render-cards')
 
-    return StudentData.innerHTML += `
-    <div class="1a" style="width: 22rem; margin-left: 28rem; border: 1px solid black;">
-        <img src="${Image_url}" class="card-img-top" alt="...">
+
+const option_keys = Object.keys(allMobiles[0])
+
+
+option_keys.map((key_elem) => {
+
+    select_option_element.innerHTML += `<option value=${key_elem}>${key_elem}</option>`
+})
+
+
+
+select_option_element.addEventListener('change', (e) => {
+    console.log(e.target.value)
+    search_by_key = e.target.value
+    search_input_element.placeholder = `Search by ${e.target.value}`
+
+})
+
+search_btn_element.addEventListener('click', () => {
+    // console.log('first')
+
+    const searched_value = search_input_element.value
+
+    render_data = allMobiles.filter((elem) => elem[search_by_key].toLowerCase() === searched_value.toLowerCase())
+
+    render_data.map((elem) => {
+        const { brand, model, price, camera, ram, rom } = elem
+        return render_cards_element.innerHTML += `<div class="card col mx-3" >
         <div class="card-body">
-            <h5 class="card-title p-2">${title}</h5>
-            <p class="card-text p-2">${description}</p>
-            <p class="card-prise p-2">${price} ${id}</p>
-            <a href="#" class="btn btn-primary m-2">${product_oder}</a>
+          <h5 class="card-title">Model: ${model}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Brand: ${brand}</h6>
+          <p class="card-text">Price: ${price}</p>
         </div>
-    </div>`
-});
+      </div>`
+    })
 
 
-
-
-
-
-
-
-
-
-// ======================EXTRA WORK START=========================
-
-// [
-//     {
-//         id: 4,
-//         title: "Dummy Data1",
-//         price: 382,
-//         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-//         Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-//         product_oder: "Oder1"
-//     },
-// ]
-// const obj = document.getElementById("1a")
-// const arr = {
-//     title: "Dummy Data1",
-//     price: 382,
-//     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quaerat repudiandae, enim recusandae dolores odit eaque laborum temporibus modi accusantium fugiat earum? Ipsa omnis sit vitae sapiente nostrum laudantium neque?",
-//     Image_url: "https://cdn05.carsforsale.com/00e7818a91f451732249f04173c1a3058f/480x360/2019-dodge-challenger-gt-2dr-coupe.jpg",
-//     product_oder: "Oder1",
-// }
-// for (let i = 0; i < arr.length; i++) {
-//     const cardHTML =
-//         `<div class="card" style="width: 22rem;">
-//             <img src="${arr[i].Image_url}" class="card-img-top" alt="....">
-//             <div class="card-body">
-//                 <h5 class="card-title">${arr[i].title}</h5>
-//                 <p class="card-text">${arr[i].description}</p>
-//                 ${arr[i].prise}
-//                 <a href="#" class="btn btn-primary">${arr[i].product_oder}</a>
-//             </div>
-//         </div>`
-// };
-// console.log(arr);
-
-// ======================EXTRA WORK END=========================
+})
+// console.log(render_data)
